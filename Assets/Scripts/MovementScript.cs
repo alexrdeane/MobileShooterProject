@@ -6,7 +6,7 @@ public class MovementScript : MonoBehaviour
 {
     public JoyStick movementJoystick;
     public JoyStick rotationJoystick;
-    public float runSpeed = 2f, rotateSpeed = 50f;
+    public float runSpeed = 3.5f, horizontalRotateSpeed = 100f, verticalRotateSpeed = 50f;
 
     public Transform cam;
 
@@ -19,7 +19,7 @@ public class MovementScript : MonoBehaviour
 
     void Update()
     {
-        rot += new Vector3(-rotationJoystick.Vertical, rotationJoystick.Horizontal, 0f) * rotateSpeed * Time.deltaTime;
+        rot += new Vector3(-rotationJoystick.Vertical * verticalRotateSpeed, rotationJoystick.Horizontal * horizontalRotateSpeed, 0f) * Time.deltaTime;
         rot.x = Mathf.Clamp(rot.x, -90f, 90f);
         transform.position += transform.TransformDirection(new Vector3(movementJoystick.Horizontal, 0f, movementJoystick.Vertical) * runSpeed * Time.deltaTime);
         //transform.rotation *= Quaternion.Euler(0f , movementJoystick.Horizontal * rotateSpeed * Time.deltaTime, 0f);
