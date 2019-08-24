@@ -54,7 +54,7 @@ public class CameraScript : MonoBehaviour
             {
                 randomDoor = Random.Range(0, doorsInRoom3.Length);
                 player.transform.position = doorsInRoom3[randomDoor].position;
-                player.transform.rotation = doorsInRoom3[randomDoor].localRotation;
+                player.transform.rotation = doorsInRoom3[randomDoor].rotation;
                 Debug.Log(randomRoom);
                 Debug.Log(randomDoor);
             }
