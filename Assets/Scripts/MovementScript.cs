@@ -7,8 +7,16 @@ public class MovementScript : MonoBehaviour
     public JoyStick movementJoystick;
     public JoyStick rotationJoystick;
     public float runSpeed = 3.5f, horizontalRotateSpeed = 100f, verticalRotateSpeed = 50f;
-
+    public LayerMask doorLayerMask;
     public Transform cam;
+    public int randomRoom;
+    public GameObject[] rooms;
+    public int randomDoor;
+    public Transform[] doorsInRoom0;
+    public Transform[] doorsInRoom1;
+    public Transform[] doorsInRoom2;
+    public Transform[] doorsInRoom3;
+    public GameObject player;
 
     Vector3 rot;
 
@@ -27,5 +35,44 @@ public class MovementScript : MonoBehaviour
         cam.localRotation = Quaternion.Euler(rot.x, 0f, 0f);
     }
 
-
+    public void ChangeRoom()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(cam.position, cam.forward, out hit, 0.3f, doorLayerMask))
+        {
+            randomRoom = Random.Range(0, rooms.Length);
+            if (randomRoom == 0)
+            {
+                randomDoor = Random.Range(0, doorsInRoom0.Length);
+                player.transform.position = doorsInRoom0[randomDoor].position;
+                rot = doorsInRoom0[randomDoor].localRotation.eulerAngles;
+                Debug.Log(randomRoom);
+                Debug.Log(randomDoor);
+            }
+            if (randomRoom == 1)
+            {
+                randomDoor = Random.Range(0, doorsInRoom0.Length);
+                player.transform.position = doorsInRoom0[randomDoor].position;
+                rot = doorsInRoom1[randomDoor].localRotation.eulerAngles;
+                Debug.Log(randomRoom);
+                Debug.Log(randomDoor);
+            }
+            if (randomRoom == 2)
+            {
+                randomDoor = Random.Range(0, doorsInRoom0.Length);
+                player.transform.position = doorsInRoom0[randomDoor].position;
+                rot = doorsInRoom2[randomDoor].localRotation.eulerAngles;
+                Debug.Log(randomRoom);
+                Debug.Log(randomDoor);
+            }
+            if (randomRoom == 3)
+            {
+                randomDoor = Random.Range(0, doorsInRoom0.Length);
+                player.transform.position = doorsInRoom0[randomDoor].position;
+                rot = doorsInRoom3[randomDoor].localRotation.eulerAngles;
+                Debug.Log(randomRoom);
+                Debug.Log(randomDoor);
+            }
+        }
+    }
 }

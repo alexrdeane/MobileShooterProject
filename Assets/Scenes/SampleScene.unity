@@ -3432,7 +3432,32 @@ MonoBehaviour:
   runSpeed: 1
   horizontalRotateSpeed: 150
   verticalRotateSpeed: 100
+  doorLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   cam: {fileID: 534669905}
+  randomRoom: 0
+  rooms:
+  - {fileID: 1375526673}
+  - {fileID: 1052853569}
+  - {fileID: 857000639}
+  - {fileID: 2083442572}
+  randomDoor: 0
+  doorsInRoom0:
+  - {fileID: 7363876111388798644}
+  - {fileID: 1690315079}
+  doorsInRoom1:
+  - {fileID: 1009953635}
+  - {fileID: 845849115}
+  doorsInRoom2:
+  - {fileID: 840422228}
+  - {fileID: 1682532906}
+  - {fileID: 1471224623}
+  doorsInRoom3:
+  - {fileID: 494842212}
+  - {fileID: 1486425641}
+  - {fileID: 1590025257}
+  player: {fileID: 1617260223}
 --- !u!54 &1617260229
 Rigidbody:
   m_ObjectHideFlags: 0
