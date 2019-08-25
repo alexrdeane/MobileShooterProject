@@ -51,24 +51,24 @@ public class MovementScript : MonoBehaviour
             }
             if (randomRoom == 1)
             {
-                randomDoor = Random.Range(0, doorsInRoom0.Length);
-                player.transform.position = doorsInRoom0[randomDoor].position;
+                randomDoor = Random.Range(0, doorsInRoom1.Length);
+                player.transform.position = doorsInRoom1[randomDoor].position;
                 rot = doorsInRoom1[randomDoor].localRotation.eulerAngles;
                 Debug.Log(randomRoom);
                 Debug.Log(randomDoor);
             }
             if (randomRoom == 2)
             {
-                randomDoor = Random.Range(0, doorsInRoom0.Length);
-                player.transform.position = doorsInRoom0[randomDoor].position;
+                randomDoor = Random.Range(0, doorsInRoom2.Length);
+                player.transform.position = doorsInRoom2[randomDoor].position;
                 rot = doorsInRoom2[randomDoor].localRotation.eulerAngles;
                 Debug.Log(randomRoom);
                 Debug.Log(randomDoor);
             }
             if (randomRoom == 3)
             {
-                randomDoor = Random.Range(0, doorsInRoom0.Length);
-                player.transform.position = doorsInRoom0[randomDoor].position;
+                randomDoor = Random.Range(0, doorsInRoom3.Length);
+                player.transform.position = doorsInRoom3[randomDoor].position;
                 rot = doorsInRoom3[randomDoor].localRotation.eulerAngles;
                 Debug.Log(randomRoom);
                 Debug.Log(randomDoor);
