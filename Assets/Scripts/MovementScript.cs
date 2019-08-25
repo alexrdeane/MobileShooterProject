@@ -45,7 +45,7 @@ public class MovementScript : MonoBehaviour
             {
                 randomDoor = Random.Range(0, doorsInRoom0.Length);
                 player.transform.position = doorsInRoom0[randomDoor].position;
-                rot = doorsInRoom0[randomDoor].localRotation.eulerAngles;
+                rot = doorsInRoom0[randomDoor].rotation.eulerAngles;
                 Debug.Log(randomRoom);
                 Debug.Log(randomDoor);
             }
@@ -53,7 +53,7 @@ public class MovementScript : MonoBehaviour
             {
                 randomDoor = Random.Range(0, doorsInRoom1.Length);
                 player.transform.position = doorsInRoom1[randomDoor].position;
-                rot = doorsInRoom1[randomDoor].localRotation.eulerAngles;
+                rot = doorsInRoom1[randomDoor].rotation.eulerAngles;
                 Debug.Log(randomRoom);
                 Debug.Log(randomDoor);
             }
@@ -61,7 +61,7 @@ public class MovementScript : MonoBehaviour
             {
                 randomDoor = Random.Range(0, doorsInRoom2.Length);
                 player.transform.position = doorsInRoom2[randomDoor].position;
-                rot = doorsInRoom2[randomDoor].localRotation.eulerAngles;
+                rot = doorsInRoom2[randomDoor].rotation.eulerAngles;
                 Debug.Log(randomRoom);
                 Debug.Log(randomDoor);
             }
@@ -69,7 +69,7 @@ public class MovementScript : MonoBehaviour
             {
                 randomDoor = Random.Range(0, doorsInRoom3.Length);
                 player.transform.position = doorsInRoom3[randomDoor].position;
-                rot = doorsInRoom3[randomDoor].localRotation.eulerAngles;
+                rot = doorsInRoom3[randomDoor].rotation.eulerAngles;
                 Debug.Log(randomRoom);
                 Debug.Log(randomDoor);
             }
