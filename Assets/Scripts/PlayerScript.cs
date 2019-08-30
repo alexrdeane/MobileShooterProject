@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementScript : MonoBehaviour
+public class PlayerScript : MonoBehaviour
 {
     public JoyStick movementJoystick;
     public JoyStick rotationJoystick;
@@ -10,8 +10,8 @@ public class MovementScript : MonoBehaviour
     public LayerMask doorLayerMask;
     public Transform cam;
     public int randomRoom;
-    public GameObject[] rooms;
     public int randomDoor;
+    public GameObject[] rooms;
     public Transform[] doorsInRoom0;
     public Transform[] doorsInRoom1;
     public Transform[] doorsInRoom2;
