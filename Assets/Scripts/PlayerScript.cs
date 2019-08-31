@@ -8,7 +8,7 @@ public class PlayerScript : MonoBehaviour
     public JoyStick rotationJoystick;
     public float runSpeed = 3.5f, horizontalRotateSpeed = 100f, verticalRotateSpeed = 50f;
     public LayerMask doorLayerMask;
-    public Transform cam;
+    public Camera cam;
     public int randomRoom;
     public int randomDoor;
     public GameObject[] rooms;
@@ -20,25 +20,20 @@ public class PlayerScript : MonoBehaviour
 
     Vector3 rot;
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         rot += new Vector3(-rotationJoystick.Vertical * verticalRotateSpeed, rotationJoystick.Horizontal * horizontalRotateSpeed, 0f) * Time.deltaTime;
-        rot.x = Mathf.Clamp(rot.x, -90f, 90f);
+        rot.x = Mathf.Clamp(rot.x, -50f, 70f);
         transform.position += transform.TransformDirection(new Vector3(movementJoystick.Horizontal, 0f, movementJoystick.Vertical) * runSpeed * Time.deltaTime);
         //transform.rotation *= Quaternion.Euler(0f , movementJoystick.Horizontal * rotateSpeed * Time.deltaTime, 0f);
         transform.rotation = Quaternion.Euler(0f, rot.y, 0f);
-        cam.localRotation = Quaternion.Euler(rot.x, 0f, 0f);
+        cam.transform.localRotation = Quaternion.Euler(rot.x, 0f, 0f);
     }
 
     public void ChangeRoom()
     {
         RaycastHit hit;
-        if (Physics.Raycast(cam.position, cam.forward, out hit, 0.3f, doorLayerMask))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 0.3f, doorLayerMask))
         {
             randomRoom = Random.Range(0, rooms.Length);
             if (randomRoom == 0)
