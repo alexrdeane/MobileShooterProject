@@ -16,8 +16,13 @@ public class PlayerScript : MonoBehaviour
     public Transform[] doorsInRoom1;
     public Transform[] doorsInRoom2;
     public Transform[] doorsInRoom3;
-    public GameObject player;
 
+    public Transform[] enemiesInRoom1;
+    public Transform[] enemiesInRoom2;
+    public Transform[] enemiesInRoom3;
+    public GameObject player;
+    public GameObject enemy;
+    public GameObject clone;
     Vector3 rot;
 
     void Update()
@@ -30,10 +35,10 @@ public class PlayerScript : MonoBehaviour
         cam.transform.localRotation = Quaternion.Euler(rot.x, 0f, 0f);
     }
 
-    public void ChangeRoom()
+    public void InteractButton()
     {
         RaycastHit hit;
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 0.3f, doorLayerMask))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 1f, doorLayerMask))
         {
             randomRoom = Random.Range(0, rooms.Length);
             if (randomRoom == 0)
@@ -41,33 +46,42 @@ public class PlayerScript : MonoBehaviour
                 randomDoor = Random.Range(0, doorsInRoom0.Length);
                 player.transform.position = doorsInRoom0[randomDoor].position;
                 rot = doorsInRoom0[randomDoor].rotation.eulerAngles;
-                Debug.Log(randomRoom);
-                Debug.Log(randomDoor);
             }
             if (randomRoom == 1)
             {
                 randomDoor = Random.Range(0, doorsInRoom1.Length);
                 player.transform.position = doorsInRoom1[randomDoor].position;
                 rot = doorsInRoom1[randomDoor].rotation.eulerAngles;
-                Debug.Log(randomRoom);
-                Debug.Log(randomDoor);
+                for (int i = 0; i < enemiesInRoom1.Length; i++)
+                {
+                    clone = Instantiate(enemy, enemiesInRoom1[i]);
+                    
+                }
             }
             if (randomRoom == 2)
             {
                 randomDoor = Random.Range(0, doorsInRoom2.Length);
                 player.transform.position = doorsInRoom2[randomDoor].position;
                 rot = doorsInRoom2[randomDoor].rotation.eulerAngles;
-                Debug.Log(randomRoom);
-                Debug.Log(randomDoor);
+                for (int i = 0; i < enemiesInRoom2.Length; i++)
+                {
+                    clone = Instantiate(enemy, enemiesInRoom2[i]);
+                }
             }
             if (randomRoom == 3)
             {
                 randomDoor = Random.Range(0, doorsInRoom3.Length);
                 player.transform.position = doorsInRoom3[randomDoor].position;
                 rot = doorsInRoom3[randomDoor].rotation.eulerAngles;
-                Debug.Log(randomRoom);
-                Debug.Log(randomDoor);
+                for (int i = 0; i < enemiesInRoom3.Length; i++)
+                {
+                    clone = Instantiate(enemy, enemiesInRoom3[i]);
+                }
             }
+        }
+        else
+        {
+            Debug.Log("Shoot");
         }
     }
 }

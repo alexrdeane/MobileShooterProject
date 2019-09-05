@@ -8,6 +8,10 @@ public class EnemyScript : MonoBehaviour
     public GameObject player;
     public float runSpeed = 0.35f;
 
+    public bool playerInRoom1;
+    public bool playerInRoom2;
+    public bool playerInRoom3;
+
     void Start()
     {
         enemy = this.gameObject;
@@ -30,7 +34,7 @@ public class EnemyScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Destroy(other.gameObject);
+
         }
     }
 }
